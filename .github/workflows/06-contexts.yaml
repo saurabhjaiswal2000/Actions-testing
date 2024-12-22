@@ -2,7 +2,7 @@ name: 06 - contexts
 
 on: 
     push:
-    workflow_dispatch:
+    workflow
 
 jobs:
     echo-data:
@@ -22,4 +22,4 @@ jobs:
             echo "Variable value: ${{ vars.MY_VAR }}"    
 
 
-             
+                
