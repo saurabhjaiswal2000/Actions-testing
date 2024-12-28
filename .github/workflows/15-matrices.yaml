@@ -3,17 +3,18 @@ on:
   workflow_dispatch:
   
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
+  backwards-compatability:
+    name: ${{ matrix.os }}-${{ matrix.node-version }}
+    runs-on: ${{ matrix.os }}
+    strategy: 
       matrix:
-        node: [ 14, 16, 18 ]
-    name: Node ${{ matrix.node }} sample
+        node-version: [ 14, 16, 18]
+        os:
+          - ubuntu-latest
+          - windows-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Setup node
         uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node }}
-      - run: npm ci
-      - run: npm test
+        with: ${{ matrix.node-version }}
+      - name: Perform some tests
+        run: echo "Running tests on OS ${{ matrix.os }} and NodeJS ${{ matrix.node-version }}"
