@@ -2,7 +2,7 @@ name: 16 - working with Environments
 run-name: 16 - working with environmemts | env - ${{ inputs.target-env }}
 on:
   workflow_dispatch:
-    input: 
+    inputs: 
       target-env:
         type: environment
         default: staging 
