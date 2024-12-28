@@ -18,4 +18,4 @@ jobs:
         with: 
           node-verison: ${{ matrix.node }}
       - name: Perform some tests
-        run: echo "Running tests on OS ${{ matrix.os }} and NodeJS ${{ matrix.node-version }}"
+        run: echo "Running tests on OS ${{ matrix.os }} and NodeJS ${{ matrix.node }}"
